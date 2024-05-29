@@ -120,3 +120,18 @@ ax.set_xlabels('Math scores')
 ax.set_ylabels('Reading scores')
 plt.title('Scatter plot')
 plt.show()
+
+# %%
+student_stats = pd.read_csv('StudentsPerformance.csv')
+# %% Выбрать бакалавров и магистров
+print(student_stats[student_stats['parental level of education'].isin(["bachelor's degree", "master's degree"])])
+
+# %% Выбрать столбцы со score
+score_columns = [i for i in list(student_stats) if 'score' in i]
+print(student_stats[score_columns].head())
+
+print(student_stats.filter(like = 'score'))
+
+
+
+
